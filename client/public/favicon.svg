@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="onionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8C3545" />
+      <stop offset="100%" stop-color="#57202B" />
+    </linearGradient>
+  </defs>
+  <!-- Leaves -->
+  <path d="M50 32 C45 20 40 10 50 2 C60 10 55 20 50 32 Z" fill="#6B7846" />
+  <path d="M48 30 C35 24 25 22 24 12 C36 12 45 22 48 30 Z" fill="#586338" />
+  <path d="M52 30 C65 24 75 22 76 12 C64 12 55 22 52 30 Z" fill="#7D8D53" />
+  <!-- Bulb Outer Silhouette -->
+  <path d="M50 30 C30 38 18 52 18 68 C18 84 32 94 46 95 L46 99 L50 97 L54 99 L54 95 C68 94 82 84 82 68 C82 52 70 38 50 30 Z" fill="url(#onionGrad)" />
+  <!-- Inner Cutout/Layers -->
+  <path d="M50 36 C34 43 24 55 24 68 C24 80 34 89 48 90 C36 82 32 72 32 64 C32 50 44 40 50 36 Z" fill="#FBF8F5" opacity="0.9" />
+  <path d="M50 36 C66 43 76 55 76 68 C76 80 66 89 52 90 C64 82 68 72 68 64 C68 50 56 40 50 36 Z" fill="#FBF8F5" opacity="0.9" />
+  <!-- Center Monogram Accent -->
+  <path d="M42 50 L42 80 M42 50 C48 50 52 54 52 58 C52 62 48 65 42 65 C50 65 54 69 54 74 C54 79 48 80 42 80" stroke="#762C3A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <path d="M52 50 L68 50 M60 50 L60 80" stroke="#762C3A" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  <!-- Roots -->
+  <path d="M44 95 L42 100 M48 95 L48 100 M52 95 L52 100 M56 95 L58 100" stroke="#57202B" stroke-width="2.5" stroke-linecap="round" />
+</svg>

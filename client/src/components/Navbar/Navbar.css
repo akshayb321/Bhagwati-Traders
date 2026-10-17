@@ -1,0 +1,647 @@
+/* ==========================================
+   BHAGWATI TRADERS — PREMIUM NAVBAR
+   CSS ONLY — EXISTING JSX PRESERVED
+   ========================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height, 80px);
+  z-index: 1000;
+  isolation: isolate;
+
+  background-color: var(--color-bg-white, #fffdfb);
+  border-bottom: 1px solid var(--color-border, #e9e2dc);
+
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+
+  animation: navbarEntrance 450ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Keep the navbar attached to the top while scrolling.
+   Sticky positioning avoids the content jump of fixed positioning. */
+
+.site-header.scrolled {
+  background-color: rgba(255, 253, 251, 0.97);
+  border-bottom-color: rgba(118, 45, 50, 0.12);
+
+  box-shadow:
+    0 4px 16px rgba(43, 31, 25, 0.045),
+    0 10px 28px rgba(43, 31, 25, 0.035);
+
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+/* Header layout */
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 1.5vw, 24px);
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+
+/* Brand logo and business name */
+
+.brand-logo-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 11px;
+
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.brand-onion-emblem {
+  display: block;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+
+  transition: transform 220ms ease;
+}
+
+.brand-logo-group:hover .brand-onion-emblem {
+  transform: scale(1.045);
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.brand-name {
+  color: var(--color-text-dark, #292522);
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: clamp(1.12rem, 1.5vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
+.brand-tagline {
+  margin-top: 0;
+  color: var(--color-primary, #762d32);
+
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 0.59rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.125em;
+  white-space: nowrap;
+}
+
+/* Desktop navigation */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  min-width: 0;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.65vw, 27px);
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+
+  padding: 0 1px;
+
+  color: var(--color-text-dark, #292522);
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    color 200ms ease,
+    opacity 200ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary, #762d32);
+}
+
+.nav-link.active {
+  font-weight: 600;
+}
+
+/* Refined desktop active underline */
+
+.active-indicator {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: var(--color-primary, #762d32);
+  border-radius: 5px;
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.nav-link:hover .active-indicator,
+.nav-link.active .active-indicator {
+  transform: scaleX(1);
+}
+
+/* Global Supply — desktop appearance preserved */
+
+.nav-badge-wrapper {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.global-supply-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 7px 12px;
+
+  background-color: var(--color-bg-warm, #f8f4ef);
+  border: 1px solid var(--color-border, #e9e2dc);
+  border-radius: 9px;
+
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.global-supply-pill:hover {
+  background-color: #f5efe7;
+  border-color: rgba(118, 45, 50, 0.17);
+  box-shadow: 0 3px 10px rgba(43, 31, 25, 0.035);
+}
+
+.pill-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: var(--color-olive, #66734b);
+}
+
+.globe-icon {
+  color: var(--color-olive, #66734b);
+}
+
+.pill-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  line-height: 1.2;
+}
+
+.pill-title {
+  color: var(--color-text-dark, #292522);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pill-subtitle {
+  color: var(--color-text-muted, #77716b);
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+/* Mobile menu toggle */
+
+.mobile-menu-toggle {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  color: var(--color-text-dark, #292522);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: var(--color-primary, #762d32);
+  background-color: rgba(118, 45, 50, 0.055);
+  border-color: rgba(118, 45, 50, 0.12);
+}
+
+/* ==========================================
+   MOBILE DROPDOWN
+   Opens directly below the navbar
+   ========================================== */
+
+.mobile-menu-drawer {
+  display: none;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - var(--nav-height, 80px));
+  max-height: calc(100dvh - var(--nav-height, 80px));
+
+  padding: 0 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background-color: var(--color-bg-white, #fffdfb);
+  border: 1px solid transparent;
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+
+  box-shadow: 0 16px 28px rgba(43, 31, 25, 0.09);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(-8px);
+
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+
+  transition:
+    opacity 200ms ease,
+    transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    padding 260ms ease,
+    border-color 200ms ease,
+    visibility 0s linear 260ms;
+}
+
+/* Closed drawer stays attached to the header */
+
+.mobile-menu-drawer.open {
+  padding: 20px;
+  border-color: var(--color-border, #e9e2dc);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+
+  transition:
+    opacity 200ms ease,
+    transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    padding 260ms ease,
+    border-color 200ms ease,
+    visibility 0s;
+}
+
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Mobile links */
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-nav-item {
+  min-width: 0;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  min-height: 50px;
+  padding: 12px 10px;
+
+  color: var(--color-text-dark, #292522);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: var(--color-border, #e9e2dc);
+  border-radius: 6px;
+
+  font-size: 0.97rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--color-primary, #762d32);
+  background-color: rgba(118, 45, 50, 0.045);
+  border-color: rgba(118, 45, 50, 0.1);
+}
+
+.mobile-nav-link.active {
+  font-weight: 600;
+}
+
+.mobile-arrow {
+  flex-shrink: 0;
+  color: var(--color-text-muted, #77716b);
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.mobile-nav-link:hover .mobile-arrow,
+.mobile-nav-link.active .mobile-arrow {
+  color: var(--color-primary, #762d32);
+  transform: translateX(3px);
+}
+
+/* Global Supply inside mobile menu */
+
+.mobile-supply-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding-top: 2px;
+}
+
+.mobile-pill {
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* Contact CTA */
+
+.mobile-contact-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+
+  color: #fff;
+  background-color: var(--color-primary, #762d32);
+  border: 1px solid var(--color-primary, #762d32);
+  border-radius: 7px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.mobile-contact-btn:hover {
+  background-color: #612329;
+  box-shadow: 0 5px 14px rgba(118, 45, 50, 0.16);
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 1200px) and (min-width: 993px) {
+  .nav-container {
+    gap: 12px;
+  }
+
+  .brand-logo-group {
+    gap: 8px;
+  }
+
+  .brand-onion-emblem {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.51rem;
+    letter-spacing: 0.09em;
+  }
+
+  .nav-list {
+    gap: 12px;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .global-supply-pill {
+    gap: 7px;
+    padding: 6px 8px;
+  }
+
+  .pill-title {
+    font-size: 0.75rem;
+  }
+
+  .pill-subtitle {
+    font-size: 0.6rem;
+  }
+}
+
+/* Tablets and mobile */
+
+@media (max-width: 992px) {
+  .desktop-nav,
+  .nav-badge-wrapper {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .mobile-menu-drawer {
+    display: block;
+  }
+
+  .active-indicator {
+    display: none;
+  }
+}
+
+/* Phones */
+
+@media (max-width: 480px) {
+  .site-header {
+    --nav-height: 68px;
+  }
+
+  .nav-container {
+    gap: 8px;
+  }
+
+  .brand-logo-group {
+    gap: 8px;
+  }
+
+  .brand-onion-emblem {
+    width: 37px;
+    height: 37px;
+  }
+
+  .brand-name {
+    font-size: clamp(1rem, 4.5vw, 1.18rem);
+  }
+
+  .brand-tagline {
+    font-size: 0.48rem;
+    letter-spacing: 0.075em;
+  }
+
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-menu-drawer.open {
+    padding: 16px;
+  }
+
+  .mobile-menu-inner {
+    gap: 16px;
+  }
+
+  .mobile-nav-link {
+    min-height: 47px;
+    padding: 11px 9px;
+    font-size: 0.93rem;
+  }
+}
+
+/* Narrow phones */
+
+@media (max-width: 359px) {
+  .brand-logo-group {
+    gap: 6px;
+  }
+
+  .brand-onion-emblem {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-name {
+    font-size: 0.94rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.42rem;
+    letter-spacing: 0.055em;
+  }
+
+  .mobile-menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-menu-drawer.open {
+    padding: 14px 12px;
+  }
+}
+
+/* Entrance animation */
+
+@keyframes navbarEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header *,
+  .site-header *::before,
+  .site-header *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

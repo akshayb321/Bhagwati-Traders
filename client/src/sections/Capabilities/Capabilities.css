@@ -1,0 +1,144 @@
+.capabilities-section {
+  padding-top: 4rem;
+  padding-bottom: 4.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.capabilities-container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Main Area */
+.capabilities-main {
+  position: relative;
+  background-image: radial-gradient(#DCD4CB 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 2.25rem 2rem 2.25rem 0;
+  border-radius: var(--radius-lg);
+}
+
+.capabilities-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  margin-bottom: 2.25rem;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.capability-stat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.capability-icon-wrap {
+  color: var(--color-olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.capability-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.cap-metric {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.cap-label {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+/* Dark Burgundy Partnership CTA Card */
+.cta-partnership-card {
+  background: linear-gradient(135deg, #57202B 0%, #762C3A 100%);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 16px 36px rgba(87, 32, 43, 0.22);
+}
+
+.cta-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.cta-globe-icon {
+  color: #FFFFFF;
+}
+
+.cta-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: #FFFFFF;
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.cta-card-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+}
+
+.cta-card-btn-wrap {
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .capabilities-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .capabilities-main {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cta-partnership-card {
+    padding: 1.75rem 1.5rem;
+  }
+}

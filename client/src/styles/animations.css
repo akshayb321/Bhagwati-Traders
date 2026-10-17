@@ -1,0 +1,295 @@
+/* ==========================================================================
+   BHAGWATI TRADERS — PREMIUM SCROLL-DRIVEN & EDITORIAL MOTION SYSTEM
+   Refined, elegant corporate animations:
+   1. Keyframe Definitions
+   2. Scroll-Triggered Reveal Classes (IntersectionObserver)
+   3. Native CSS Scroll-Driven Animations (W3C animation-timeline)
+   4. Staggered Delays & Timing Functions
+   5. Accessibility & Reduced Motion Handling
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. KEYFRAME DEFINITIONS
+   -------------------------------------------------------------------------- */
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroEyebrowFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroScriptFloat {
+  0% {
+    opacity: 0;
+    transform: rotate(-3deg) translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-3deg) translateY(0) scale(1);
+  }
+}
+
+@keyframes heroBgParallax {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(32px) scale(1.04);
+  }
+}
+
+@keyframes scrollImageSubtleZoom {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scrollImageShift {
+  0% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes modalBackdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalCardPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. SCROLL-TRIGGERED ENTRANCE CLASSES (IntersectionObserver)
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Specific variations */
+.reveal-fade {
+  transform: none;
+}
+.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+.reveal-scale {
+  transform: scale(0.96) translateY(12px);
+}
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Staggered Delays */
+.delay-1 {
+  transition-delay: 0.08s;
+}
+.delay-2 {
+  transition-delay: 0.16s;
+}
+.delay-3 {
+  transition-delay: 0.24s;
+}
+.delay-4 {
+  transition-delay: 0.32s;
+}
+.delay-5 {
+  transition-delay: 0.40s;
+}
+.delay-6 {
+  transition-delay: 0.48s;
+}
+
+/* --------------------------------------------------------------------------
+   3. NATIVE CSS SCROLL-DRIVEN ANIMATIONS
+   -------------------------------------------------------------------------- */
+@supports (animation-timeline: scroll()) {
+  .hero-bg-image {
+    animation: heroBgParallax linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 650px;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .about-photo {
+    animation: scrollImageSubtleZoom linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 45%;
+  }
+
+  .mosaic-main .mosaic-img {
+    animation: scrollImageSubtleZoom linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 45%;
+  }
+
+  .mosaic-sub-stack .mosaic-sub:nth-child(2) .mosaic-img {
+    animation: scrollImageShift linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 50%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. POLISHED HOVER TRANSITIONS (Devices that support hover)
+   -------------------------------------------------------------------------- */
+@media (hover: hover) {
+  .btn {
+    transition: background-color var(--transition-fast),
+                color var(--transition-fast),
+                border-color var(--transition-fast),
+                transform var(--transition-fast),
+                box-shadow var(--transition-fast);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:hover .btn-arrow,
+  .btn:hover svg {
+    transform: translateX(3px);
+    transition: transform var(--transition-fast);
+  }
+
+  .btn svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .product-card {
+    transition: transform var(--transition-smooth),
+                box-shadow var(--transition-smooth),
+                border-color var(--transition-smooth);
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(87, 32, 43, 0.1);
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
+
+  .gallery-item {
+    transition: transform var(--transition-smooth),
+                box-shadow var(--transition-smooth);
+  }
+
+  .gallery-item:hover {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.06);
+  }
+
+  .pillar-card {
+    transition: transform var(--transition-normal),
+                border-color var(--transition-normal),
+                box-shadow var(--transition-normal);
+  }
+
+  .pillar-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. MOBILE MOTION TUNING (Lightweight, no heavy calculations)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .reveal-on-scroll {
+    transform: translateY(14px);
+    transition-duration: 0.6s;
+  }
+
+  /* Disable heavy scroll-timeline scaling on mobile to preserve battery & FPS */
+  @supports (animation-timeline: view()) {
+    .about-photo,
+    .mosaic-main .mosaic-img,
+    .mosaic-sub-stack .mosaic-sub:nth-child(2) .mosaic-img {
+      animation: none !important;
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .hero-bg-image {
+      animation: none !important;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. ACCESSIBILITY — REDUCED MOTION (Strictly adhere to user preference)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll,
+  .reveal-fade,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-bg-image,
+  .about-photo,
+  .mosaic-img {
+    animation: none !important;
+    transform: none !important;
+  }
+}
